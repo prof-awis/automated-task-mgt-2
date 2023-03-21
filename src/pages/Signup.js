@@ -26,7 +26,7 @@ const Signup = () => {
           <input type="password" name="" required="" />
           <label>Confirm Password</label>
         </div>
-        <a href="../Login/login.html">
+        <a href="./Login">
           <span></span>
           <span></span>
           <span></span>

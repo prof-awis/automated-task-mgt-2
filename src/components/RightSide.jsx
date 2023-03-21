@@ -1,5 +1,7 @@
 import React from "react";
 
+import "../components-css/RightSide.css";
+
 export default function RightSide() {
   return (
     <div className="right-below-navbar">

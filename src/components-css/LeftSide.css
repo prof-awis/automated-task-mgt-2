@@ -1,0 +1,13 @@
+.left-below-navbar {
+  width: 70%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}

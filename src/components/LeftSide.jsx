@@ -1,5 +1,6 @@
 import React from "react";
 import Task from "./Task";
+import "../components-css/LeftSide.css";
 
 function LeftSide() {
   return (
