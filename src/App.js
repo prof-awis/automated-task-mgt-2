@@ -6,9 +6,9 @@ import Signup from "./pages/Signup";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Login></Login>}></Route>
-      <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
-      <Route path="/signup" element={<Signup></Signup>}></Route>
+      <Route path="/login" element={<Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/signup" element={<Signup />} />
     </Routes>
   );
 }

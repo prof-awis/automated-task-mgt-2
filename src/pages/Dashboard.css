@@ -219,7 +219,9 @@ img {
 .task input:active {
   border: none;
 }
-
+.task input:focus {
+  outline: none;
+}
 .right-below-navbar {
   /* background-color: #000; */
   margin: 1rem 1rem;
