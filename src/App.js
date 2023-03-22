@@ -3,6 +3,15 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import GetStarted from "./pages/GetStarted";
+// import { FiLogOut } from "react-icons/fi";
+
+// class LogOut extends Component {
+//   render() {
+//     return <FiLogOut />;
+//   }
+// }
+
+// export  default LogOut;
 
 function App() {
   return (

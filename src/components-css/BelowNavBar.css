@@ -1,0 +1,32 @@
+.belowNavBarImageContainer {
+  padding: 2rem 5rem;
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 4rem;
+  text-shadow: 1rem 1rem 1rem #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.belowNavBarImageContainer img {
+  border-radius: 2rem 2rem 0 0;
+  height: 60vh;
+  width: 90%;
+  background-size: cover;
+  filter: contrast(85%);
+  filter: brightness(40%);
+}
+
+.center {
+  position: absolute;
+}
+
+.buttonTask {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 10rem;
+  padding: 1rem 2rem;
+}

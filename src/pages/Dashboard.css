@@ -21,18 +21,15 @@ body {
 }
 
 .main {
-  background: #e5e0ff;
-  border-radius: 15px;
-  box-shadow: #447aaf;
-  border: 1px solid #e5e0ff;
-
-  margin: 10px;
+  background: #fff;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
 }
 
 .home-section {
   background: #ffffff;
+  margin: 1rem 3rem;
 }
 
 .below-navbar {

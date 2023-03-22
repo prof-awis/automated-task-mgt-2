@@ -1,4 +1,5 @@
 import React from "react";
+import BelowNavBar from "../components/BelowNavBar";
 import LeftSide from "../components/LeftSide";
 import NavBar from "../components/NavBar";
 import RightSide from "../components/RightSide";
@@ -8,14 +9,13 @@ import "./Dashboard.css";
 const Dashboard = () => {
   return (
     <div className="main">
-      <SideBar />
+      <NavBar />
       <section className="home-section">
-        <NavBar />
+        <BelowNavBar />
 
-        <div className="below-navbar">
-          <LeftSide />
-          <RightSide />
-        </div>
+        <LeftSide />
+
+        {/* <RightSide /> */}
       </section>
     </div>
   );

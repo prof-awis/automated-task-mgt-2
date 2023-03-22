@@ -46,18 +46,3 @@ img {
 .textContainer p {
   padding-bottom: 3rem;
 }
-
-button {
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ffffff;
-  background: rgba(150, 36, 36, 0.9);
-  border-radius: 1rem 1rem;
-}
-
-button:hover {
-  color: #000;
-  border-color: rgba(150, 36, 36, 0.9);
-  background: #ffffff;
-}

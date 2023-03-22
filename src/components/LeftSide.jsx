@@ -5,40 +5,44 @@ import "../components-css/LeftSide.css";
 function LeftSide() {
   return (
     <div className="left-below-navbar">
-      <div>
-        <h1>TASKS</h1>
-      </div>
-
       <div className="content">
-        <Task />
-        <Task />
-        <Task />
+        <div className="contentHeader">
+          <h1>TASKS</h1>
+        </div>
+        <div className="contentTask">
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+        </div>
       </div>
-
-      <div>
-        <div>
+      <div className="content">
+        <div className="contentHeader">
           <h1>UPCOMING TASKS</h1>
         </div>
-        <div className="content">
+        <div className="contentTask">
+          <Task />
+          <Task />
+          <Task />
           <Task />
           <Task />
         </div>
-        <div>
-          <div>
-            <h1>DID YOU KNOW ?</h1>
-          </div>
-          <div className="content">
-            <div className="task">
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint
-                voluptatibus aut culpa tenetur reiciendis deserunt, quam veniam
-                vero, nulla quidem voluptates non. Incidunt maiores quae
-                nesciunt aliquam, non accusamus. Sunt sint ea veniam? Libero
-                dicta, laboriosam asperiores nihil quo velit sequi blanditiis
-                voluptate delectus nulla.
-              </p>
-            </div>
-          </div>
+      </div>
+      <div className="content">
+        <div className="contentHeader">
+          <h1>DID YOU KNOW ?</h1>
+        </div>
+        <div className="contentTask">
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor in
+            odit adipisci quidem provident corrupti aut sequi earum similique
+            inventore eaque, veniam modi reprehenderit corporis amet ea error!
+            Ducimus ea similique temporibus eligendi, laudantium ipsa expedita
+            ab doloremque voluptas dignissimos provident eveniet, nesciunt dicta
+            a suscipit? Non vero ea explicabo necessitatibus quae dolore omnis
+            neque sunt.
+          </p>
         </div>
       </div>
     </div>

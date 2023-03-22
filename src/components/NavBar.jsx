@@ -1,42 +1,45 @@
 import React from "react";
 import "../components-css/NavBar.css";
-
+import ProfilePicture from "../images/unseen-studio-s9CC2SKySJM-unsplash.jpg";
+import { FiLogOut } from "react-icons/fi";
+import { IoLogoSlack, IoEarth } from "react-icons/io5";
 function NavBar() {
   return (
-    <nav className="nav-bar">
-      <div className="menu-bar">
-        <a href="#" className="active">
-          {/* <svg
-          xmlns="http://www.w3.org/2000/svg"
-          id="Outline"
-          viewBox="0 0 24 24"
-          width="20"
-          height="20"
-          fill="blue"
-          className="sidebarBtn"
-        >
-          <rect y="11" width="24" height="2" rx="1" />
-          <rect y="4" width="24" height="2" rx="1" />
-          <rect y="18" width="24" height="2" rx="1" />
-        </svg> */}
-          <span>Menu</span>
-        </a>
+    <nav className="navBar">
+      <div className="logoBar">
+        <IoLogoSlack />
+        {/* <IoEarth /> */}
+        <span>AwTask</span>
       </div>
 
-      <div className="right-navbar">
-        {/*<div>
-        <ul className="lists">
-          <li>Name</li>
-          <li>picture</li>
+      <div className="centerNavbar">
+        <ul>
+          <li>
+            <a href="">Home</a>
+          </li>
+          <li>
+            <a href="">Schedule</a>
+          </li>
+          <li>
+            <a href="">About Us</a>
+          </li>
+          <li>
+            <a href="">Contact Us</a>
+          </li>
         </ul>
-      </div>*/}
-        <div className="user-image">
-          <span>Prof</span>
+      </div>
 
-          <img
-            src="../../assets/images/0acea755-eac4-4966-b4c0-f16b678a52b7.jpg"
-            alt="user pic"
-          />
+      <div className="profileContainer">
+        <div className="profileName">
+          <p>Profile Name</p>
+        </div>
+
+        <div className="profileImage">
+          <img src={ProfilePicture} alt="" srcset="" />
+        </div>
+
+        <div className="profileLogout">
+          <FiLogOut />
         </div>
       </div>
     </nav>

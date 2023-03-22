@@ -1,21 +1,15 @@
 .task {
-  /* background: #fff2f2; */
-  width: 45%;
-
-  border-radius: 15px;
+  width: 18rem;
+  border-radius: 0.5rem;
   padding: 1rem;
-  margin: 1rem 0.5rem;
+  margin: 1.3rem 2.5rem 2rem 0rem;
   box-shadow: 0.1rem 0.1rem 0.5rem gray;
-  /* *box shadow attributes: x, y, bluriness, color */
-  /* flex-grow: 1; */
 }
 
 .task input {
   border: none;
   border-bottom: 1px solid gray;
   margin-bottom: 1rem;
-
-  /* background-color: #fff2f2; */
   padding: 0.5rem;
 }
 

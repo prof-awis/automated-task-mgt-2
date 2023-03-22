@@ -1,13 +1,24 @@
 .left-below-navbar {
-  width: 70%;
-  padding: 1rem;
+  width: 100%;
   display: flex;
+  justify-content: center;
   flex-direction: column;
+  padding: 0 8rem;
 }
 
 .content {
   display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+
+.contentHeader {
+  display: flex;
+  padding: 1rem 0;
+}
+
+.contentTask {
+  display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+  /* justify-content: space-between; */
 }

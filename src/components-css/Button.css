@@ -1,0 +1,17 @@
+button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  /* background: rgba(150, 36, 36, 0.9); */
+  background: #cb936d;
+  border-radius: 0.5rem 0.5rem;
+  border: 0.3rem;
+}
+
+button:hover {
+  color: #cb936d;
+  border-color: #cb936d;
+  border: 1px solid #cb936d;
+  background: #ffffff;
+}
