@@ -12,8 +12,8 @@ function BelowNavBar() {
       </div>
       <div className="buttonTask">
         {/* <Button /> */}
-        <button>Add Task</button>
-        <button>Manage Task</button>
+        <button className="button">Add Task</button>
+        <button className="button">Manage Task</button>
       </div>
     </div>
   );

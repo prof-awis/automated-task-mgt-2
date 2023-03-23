@@ -1,0 +1,29 @@
+.footer {
+  background: #4d3729;
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer .logoBar {
+  padding: 1rem 2rem;
+}
+.footerContent {
+  padding: 1rem 4rem;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.footerContent p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.footerContent p > a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+  margin-top: -1rem 0;
+}

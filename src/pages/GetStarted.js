@@ -13,7 +13,7 @@ function GetStarted() {
       <div className="textContainer">
         <p>The best way to organize, manage and track your work.</p>
         {/* <Button/> */}
-        <button>Get Started</button>
+        <button className="button">Get Started</button>
       </div>
     </div>
   );

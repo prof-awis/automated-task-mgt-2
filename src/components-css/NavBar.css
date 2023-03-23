@@ -5,6 +5,8 @@
   height: 9vh;
   width: 100%;
   background: #4d3729;
+  position: fixed;
+  z-index: 100;
 }
 
 .logoBar {
@@ -20,16 +22,32 @@
 .centerNavbar ul {
   list-style: none;
   display: flex;
-  justify-content: space-evenly;
+  /* gap: 1rem; */
+  justify-content: center;
+  align-items: center;
 }
 
+.centerNavbar ul li {
+  height: 9vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
 .centerNavbar ul li > a {
   text-decoration: none;
   color: #fff;
   font-size: 1rem;
   font-weight: 100;
+  padding: 0rem 3rem;
+  display: grid;
+  place-items: center;
+  white-space: nowrap;
+  height: 100%;
+  width: 100%;
 }
-
+.centerNavbar ul li:hover {
+  background: #644633;
+}
 .profileContainer {
   width: 20%;
   display: flex;

@@ -1,5 +1,6 @@
 import React from "react";
 import BelowNavBar from "../components/BelowNavBar";
+import Footer from "../components/Footer";
 import LeftSide from "../components/LeftSide";
 import NavBar from "../components/NavBar";
 import RightSide from "../components/RightSide";
@@ -17,6 +18,7 @@ const Dashboard = () => {
 
         {/* <RightSide /> */}
       </section>
+      <Footer />
     </div>
   );
 };

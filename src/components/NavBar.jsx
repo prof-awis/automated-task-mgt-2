@@ -1,6 +1,6 @@
 import React from "react";
 import "../components-css/NavBar.css";
-import ProfilePicture from "../images/unseen-studio-s9CC2SKySJM-unsplash.jpg";
+import ProfilePicture from "../images/remind.jpg";
 import { FiLogOut } from "react-icons/fi";
 import { IoLogoSlack, IoEarth } from "react-icons/io5";
 function NavBar() {
@@ -15,16 +15,16 @@ function NavBar() {
       <div className="centerNavbar">
         <ul>
           <li>
-            <a href="">Home</a>
+            <a href="/Dashboard">Home</a>
           </li>
           <li>
             <a href="">Schedule</a>
           </li>
           <li>
-            <a href="">About Us</a>
+            <a href="/AboutUs">About Us</a>
           </li>
           <li>
-            <a href="">Contact Us</a>
+            <a href="/ContactUs">Contact Us</a>
           </li>
         </ul>
       </div>
@@ -39,7 +39,9 @@ function NavBar() {
         </div>
 
         <div className="profileLogout">
-          <FiLogOut />
+          <button className="button nav-button">
+            <FiLogOut /> Log Out
+          </button>
         </div>
       </div>
     </nav>

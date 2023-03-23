@@ -1,0 +1,131 @@
+.contactUs {
+  width: 100%;
+}
+.contactUsContainer {
+  display: flex;
+  background: rgb(250, 248, 248);
+  padding-top: 9vh;
+}
+.contactUsText {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.getInTouch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.getInTouch .getInTouchHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0rem;
+  color: #c4652a;
+}
+
+.details {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.detailsContent:nth-child(2) {
+  border-style: groove;
+  border-color: #c4652a;
+  border-top: 1px;
+  border-bottom: 1px;
+}
+
+.detailsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.8rem;
+  padding: 1rem 1rem;
+}
+
+.details .detailsContent .detailsIcons {
+  font-size: 2rem;
+  color: #c45008;
+  margin-bottom: 1rem;
+}
+.connectWithUs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.connectWithUsHeader {
+  display: flex;
+  justify-content: center;
+  color: #c45008;
+  font-size: 1rem;
+}
+.connectWithUsIcons {
+  display: flex;
+  gap: 3rem;
+  padding: 1rem 3rem;
+}
+.feedback {
+  margin: 0rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgb(224, 218, 218);
+}
+.feedback .feedbackHeader {
+  padding: 2rem 0rem;
+  color: #c4652a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedback form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedbackInput {
+  margin: 0rem 2rem;
+  padding: 0.5rem 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedbackInput .feedbackIcons {
+  font-size: 1.4rem;
+  color: #572606;
+}
+
+.feedback form .feedbackInput > input {
+  height: 2rem;
+  width: 20rem;
+  border: none;
+  border-bottom: 1px solid #c4652a;
+}
+.feedback form .feedbackInput > textarea {
+  height: 5rem;
+  width: 20rem;
+  border: none;
+  border-bottom: 1px solid #c4652a;
+}
+
+.feedback textarea,
+input:focus {
+  outline: none;
+}

@@ -1,0 +1,60 @@
+.aboutUs {
+  width: 100%;
+}
+.aboutUsContainer {
+  display: flex;
+  padding-top: 9vh;
+}
+.aboutUsText {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(214, 206, 206);
+  gap: 3rem;
+  padding: 0 3rem;
+}
+
+.aboutUsText > h1 {
+  color: #c4652a;
+}
+
+.aboutUsText > p {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.vision {
+  margin: 2rem 0;
+}
+
+.hr {
+  background: #c4652a;
+  width: 100%;
+  height: 1px;
+  /* font */
+}
+
+.mission {
+  margin: 2rem 0;
+}
+
+.aboutUsHeader h2 {
+  color: #662c08;
+  background: #fa9658;
+  padding: 0.5rem 2rem;
+  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
+  margin-bottom: 1rem;
+}
+
+.aboutUsPar {
+  padding: 0.6rem 10rem;
+  margin: 0 5rem;
+  text-align: center;
+  display: grid;
+  gap: 1rem;
+  font-size: 1.1rem;
+}
