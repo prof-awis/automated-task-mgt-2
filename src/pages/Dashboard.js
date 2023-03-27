@@ -5,6 +5,7 @@ import LeftSide from "../components/LeftSide";
 import NavBar from "../components/NavBar";
 import RightSide from "../components/RightSide";
 import SideBar from "../components/SideBar";
+import TaskList from "../components/TaskList";
 import "./Dashboard.css";
 
 const Dashboard = () => {
@@ -13,7 +14,7 @@ const Dashboard = () => {
       <NavBar />
       <section className="home-section">
         <BelowNavBar />
-
+        <TaskList />
         <LeftSide />
 
         {/* <RightSide /> */}

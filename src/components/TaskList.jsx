@@ -32,7 +32,48 @@ const TaskList = () => {
 
   return (
     <div>
-      <div></div>
+      <table>
+        <tr>
+          <th>
+            <select name="status" id="">
+              <option value="todo">TO DO</option>
+              <option value="">COMPLETED</option>
+              <option value="">IN PROGRESS</option>
+              <option value="">NEW</option>
+            </select>
+          </th>
+        </tr>{" "}
+        <tr>
+          <th>Name</th>
+          <th>Due Date</th>
+          <th>Priority</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" name="" id="" placeholder="Task Name" />
+          </td>
+          <td>
+            <input type="date" name="" placeholder="Date" id="" />
+          </td>
+          <td>
+            <select name="priority" id="">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </td>
+          <td>
+            <textarea
+              name=""
+              id=""
+              cols="25"
+              rows="1"
+              placeholder="Task Description..."
+            ></textarea>
+          </td>
+        </tr>
+      </table>
     </div>
   );
 };

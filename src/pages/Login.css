@@ -32,7 +32,7 @@
 
 .login-text p {
   padding: 1rem 0;
-  font-weight: 550;
+  /* font-weight: 550; */
 }
 
 .login-box form {
@@ -61,6 +61,11 @@ label {
 
 .user-box input:focus {
   outline: none;
+}
+.user-box3 {
+  padding: 1rem 0rem;
+  display: flex;
+  gap: 0.5rem;
 }
 .user-box2 {
   padding: 1rem 0rem;
