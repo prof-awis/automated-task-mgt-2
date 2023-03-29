@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import pic from "../images/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -10,6 +11,26 @@ const Login = () => {
   const changeFormHandler = (e) => {
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const user = fetch("http://localhost:8000/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: form.email,
+        password: form.password,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        navigate("/dashboard");
+      }
+    });
+  };
+
   return (
     <div className="login">
       <div className="imageContainerLogin">
@@ -20,7 +41,7 @@ const Login = () => {
           <h1>Welcome Back!</h1>
           <p>Enter Your Login Details</p>
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="user-box">
             <label>Email</label>
             <input
@@ -48,9 +69,11 @@ const Login = () => {
             <label htmlFor="">Remember Me</label>
           </div>
           <div className="user-box2">
-            <a href="/dashboard">Login</a>
+            <button type="submit">Login</button>
+            {/* <a href="/dashboard">Login</a> */}
             <p>
-              You do not have an accout ? <a href="Signup">Sign Up</a>
+              You do not have an accout ? <Link to={"/SignUp"}>Sign Up</Link>
+              {/* <a href="Signup">Sign Up</a> */}
             </p>
           </div>
         </form>

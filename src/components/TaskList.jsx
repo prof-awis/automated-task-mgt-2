@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../components-css/TaskList.css";
 
 const TaskList = () => {
   const [status, setStatus] = useState([]);
@@ -32,7 +33,7 @@ const TaskList = () => {
 
   return (
     <div>
-      <table>
+      <table className="TaskTable">
         <tr>
           <th>
             <select name="status" id="">

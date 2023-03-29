@@ -4,6 +4,7 @@ import ProfilePicture from "../images/remind.jpg";
 import { FiLogOut } from "react-icons/fi";
 import { IoLogoSlack, IoEarth } from "react-icons/io5";
 import { GoPerson } from "react-icons/go";
+import { Link } from "react-router-dom";
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -18,16 +19,28 @@ function NavBar() {
       <div className="centerNavbar">
         <ul>
           <li>
-            <a href="/Dashboard">Home</a>
+            <Link className="centerNavbar-links" to={"/Dashboard"}>
+              Dashboard
+            </Link>
+            {/* <a href="/Dashboard">Home</a> */}
           </li>
           <li>
-            <a href="">Schedule</a>
+            <Link className="centerNavbar-links" to={"/Schedule"}>
+              Schedule
+            </Link>
+            {/* <a href="">Schedule</a> */}
           </li>
           <li>
-            <a href="/AboutUs">About Us</a>
+            <Link className="centerNavbar-links" to={"/AboutUs"}>
+              About uS
+            </Link>
+            {/* <a href="/AboutUs">About Us</a> */}
           </li>
           <li>
-            <a href="/ContactUs">Contact Us</a>
+            <Link className="centerNavbar-links" to={"/ContactUs"}>
+              Contact Us
+            </Link>
+            {/* <a href="/ContactUs">Contact Us</a> */}
           </li>
         </ul>
       </div>

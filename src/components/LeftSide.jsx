@@ -2,7 +2,7 @@ import React from "react";
 import Task from "./Task";
 import "../components-css/LeftSide.css";
 
-function LeftSide() {
+function LeftSide(props) {
   return (
     <div className="left-below-navbar">
       <div className="content">
@@ -10,24 +10,18 @@ function LeftSide() {
           <h1>TASKS</h1>
         </div>
         <div className="contentTask">
+          {/* <Task />
           <Task />
           <Task />
           <Task />
-          <Task />
-          <Task />
+          <Task /> */}
         </div>
       </div>
       <div className="content">
         <div className="contentHeader">
           <h1>UPCOMING TASKS</h1>
         </div>
-        <div className="contentTask">
-          <Task />
-          <Task />
-          <Task />
-          <Task />
-          <Task />
-        </div>
+        <div className="contentTask">{props.showLeftSide && <Task />}</div>
       </div>
       <div className="content">
         <div className="contentHeader">

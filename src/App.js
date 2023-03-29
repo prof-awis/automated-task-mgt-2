@@ -5,15 +5,6 @@ import Signup from "./pages/Signup";
 import GetStarted from "./pages/GetStarted";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
-// import { FiLogOut } from "react-icons/fi";
-
-// class LogOut extends Component {
-//   render() {
-//     return <FiLogOut />;
-//   }
-// }
-
-// export  default LogOut;
 
 function App() {
   return (

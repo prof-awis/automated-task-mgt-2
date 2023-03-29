@@ -1,0 +1,18 @@
+.TaskTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.TaskTable td,
+.TaskTable th {
+  border: 1px solid rgba(146, 49, 49, 0.37);
+  padding: 1rem 2rem;
+}
+
+.TaskTable tr:hover {
+  background: brown;
+}
+
+.TaskTable td {
+  text-align: center;
+}
