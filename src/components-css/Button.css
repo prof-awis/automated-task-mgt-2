@@ -35,3 +35,22 @@
   border: 1px solid #cb936d;
   background: #ffffff;
 }
+
+.formStatusModal,
+.formTaskModal .userBoxButtons .userBoxButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  width: 5rem;
+}
+.userBoxButton2 {
+  border: #cb936d;
+  color: #cb936d;
+  background: #fff;
+}
+.userBoxButton2:hover {
+  /* border: #cb936d; */
+  color: #fff;
+  background: #cb936d;
+}

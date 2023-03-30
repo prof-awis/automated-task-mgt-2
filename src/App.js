@@ -1,5 +1,5 @@
 import Dashboard from "./pages/Dashboard";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import GetStarted from "./pages/GetStarted";
@@ -8,15 +8,23 @@ import ContactUs from "./pages/ContactUs";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<GetStarted />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/getstarted" element={<GetStarted />} />
-      <Route path="/aboutus" element={<AboutUs />} />
-      <Route path="/contactus" element={<ContactUs />} />
-    </Routes>
+    <>
+      {localStorage.getItem("token") ? (
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/contactus" element={<ContactUs />} />
+          <Route path="*" element={<Dashboard />} />
+        </Routes>
+      ) : (
+        <Routes>
+          <Route path="/" element={<GetStarted />} />
+          <Route path="*" element={<GetStarted />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      )}
+    </>
   );
 }
 

@@ -9,6 +9,68 @@ const Signup = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
 
+  // const [input, setInput] = useState({
+  //   // username: '',
+  //   password: "",
+  //   confirmPassword: "",
+  // });
+
+  // const [error, setError] = useState({
+  //   // username: '',
+  //   password: "",
+  //   confirmPassword: "",
+  // });
+
+  // const onInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setInput((prev) => ({
+  //     ...prev,
+  //     [name]: value,
+  //   }));
+  //   validateInput(e);
+  // };
+
+  // const validateInput = (e) => {
+  //   let { name, value } = e.target;
+  //   setError((prev) => {
+  //     const stateObj = { ...prev, [name]: "" };
+
+  //     switch (name) {
+  //       // case "username":
+  //       //   if (!value) {
+  //       //     stateObj[name] = "Please enter Username.";
+  //       //   }
+  //       //   break;
+
+  //       case "password":
+  //         if (!value) {
+  //           stateObj[name] = "Please enter Password.";
+  //         } else if (input.confirmPassword && value !== input.confirmPassword) {
+  //           stateObj["confirmPassword"] =
+  //             "Password and Confirm Password does not match.";
+  //         } else {
+  //           stateObj["confirmPassword"] = input.confirmPassword
+  //             ? ""
+  //             : error.confirmPassword;
+  //         }
+  //         break;
+
+  //       case "confirmPassword":
+  //         if (!value) {
+  //           stateObj[name] = "Please enter Confirm Password.";
+  //         } else if (input.password && value !== input.password) {
+  //           stateObj[name] = "Password and Confirm Password does not match.";
+  //         }
+  //         break;
+
+  //       default:
+  //         break;
+  //     }
+
+  //     return stateObj;
+  //   });
+  // };
+
   const navigate = useNavigate();
 
   const fnameChangeHandler = (e) => {
@@ -21,6 +83,12 @@ const Signup = () => {
 
   const passwordChangeHandler = (e) => {
     setpassword(e.target.value);
+    // const { name, value } = e.target;
+    // setInput((prev) => ({
+    //   ...prev,
+    //   [name]: value,
+    // }));
+    // validateInput(e);
   };
 
   const handleSubmit = (event) => {
@@ -91,14 +159,27 @@ const Signup = () => {
             <input
               type="password"
               onChange={passwordChangeHandler}
+              // onChange={onInputChange}
               value={password}
-              name=""
+              name="password"
+              // onBlur={validateInput}
               required
             />
           </div>
           <div class="user-box">
             <label>Confirm Password</label>
-            <input type="password" name="" required="" />
+            <input
+              type="password"
+              name="confirmPassword"
+              // placeholder="Enter Confirm Password"
+              // value={input.confirmPassword}
+              // onChange={onInputChange}
+              // onBlur={validateInput}
+              required
+            />
+            {/* {error.confirmPassword && (
+              <span className="err">{error.confirmPassword}</span>
+            )} */}
           </div>
           <div className="user-box2">
             <input type="checkbox" name="" id="" />
@@ -108,7 +189,9 @@ const Signup = () => {
             {/* <a href="./Login">Submit</a> */}
             <p>
               {" "}
-              <button type="submit">Submit</button>
+              <button type="submit" className="button">
+                Submit
+              </button>
               You are ready ! <Link to={"/Login"}>Login</Link>
               {/* <a href="Login">Login</a> */}
             </p>

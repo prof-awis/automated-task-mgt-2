@@ -10,13 +10,12 @@ function BelowNavBar(props) {
         <img src={belowNavBarImage} alt="" srcset="" />
         <div className="center">Task Management System</div>
       </div>
-      <div className="buttonTask">
-        {/* <Button /> */}
+      {/* <div className="buttonTask">
         <button className="button" onClick={props.addTaskHandler}>
           Add Task
         </button>
         <button className="button">Manage Task</button>
-      </div>
+      </div> */}
     </div>
   );
 }

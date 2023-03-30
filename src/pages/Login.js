@@ -24,11 +24,18 @@ const Login = () => {
         email: form.email,
         password: form.password,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        navigate("/dashboard");
-      }
-    });
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.token && res.user) {
+          localStorage.setItem("token", res.token);
+          localStorage.setItem("user", JSON.stringify(res.user));
+          window.location.reload();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -49,7 +56,7 @@ const Login = () => {
               name="email"
               value={form.email}
               onChange={changeFormHandler}
-              placeholder="Your Email Address"
+              placeholder="Enter Your Email Address"
               required
             />
           </div>
@@ -60,7 +67,7 @@ const Login = () => {
               name="password"
               value={form.password}
               onChange={changeFormHandler}
-              placeholder="Your Password"
+              placeholder="Enter Your Password"
               required
             />
           </div>
@@ -69,7 +76,9 @@ const Login = () => {
             <label htmlFor="">Remember Me</label>
           </div>
           <div className="user-box2">
-            <button type="submit">Login</button>
+            <button type="submit" className="button">
+              Login
+            </button>
             {/* <a href="/dashboard">Login</a> */}
             <p>
               You do not have an accout ? <Link to={"/SignUp"}>Sign Up</Link>

@@ -69,6 +69,10 @@ label {
 }
 .user-box2 {
   padding: 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .login-box .user-box2 > a {
   padding: 1rem 2rem;

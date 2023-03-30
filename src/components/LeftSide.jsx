@@ -5,7 +5,7 @@ import "../components-css/LeftSide.css";
 function LeftSide(props) {
   return (
     <div className="left-below-navbar">
-      <div className="content">
+      {/* <div className="content">
         <div className="contentHeader">
           <h1>TASKS</h1>
         </div>
@@ -15,14 +15,14 @@ function LeftSide(props) {
           <Task />
           <Task />
           <Task /> */}
-        </div>
+      {/* </div>
       </div>
       <div className="content">
         <div className="contentHeader">
           <h1>UPCOMING TASKS</h1>
         </div>
         <div className="contentTask">{props.showLeftSide && <Task />}</div>
-      </div>
+      </div>  */}
       <div className="content">
         <div className="contentHeader">
           <h1>DID YOU KNOW ?</h1>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../components-css/NavBar.css";
 import ProfilePicture from "../images/remind.jpg";
 import { FiLogOut } from "react-icons/fi";
@@ -7,6 +7,17 @@ import { GoPerson } from "react-icons/go";
 import { Link } from "react-router-dom";
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const newUser = localStorage.getItem("user");
+    setUser(JSON.parse(newUser));
+  }, []);
+
+  const logout = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
 
   return (
     <nav className="navBar">
@@ -20,19 +31,18 @@ function NavBar() {
         <ul>
           <li>
             <Link className="centerNavbar-links" to={"/Dashboard"}>
-              Dashboard
+              Home
             </Link>
             {/* <a href="/Dashboard">Home</a> */}
           </li>
-          <li>
+          {/* <li>
             <Link className="centerNavbar-links" to={"/Schedule"}>
               Schedule
             </Link>
-            {/* <a href="">Schedule</a> */}
-          </li>
+          </li> */}
           <li>
             <Link className="centerNavbar-links" to={"/AboutUs"}>
-              About uS
+              About Us
             </Link>
             {/* <a href="/AboutUs">About Us</a> */}
           </li>
@@ -47,7 +57,9 @@ function NavBar() {
 
       <div className="profileContainer">
         <div className="profileName">
-          <p>Profile Name</p>
+          <p>
+            {user.firstName} {user.lastName}{" "}
+          </p>
         </div>
 
         <div
@@ -67,7 +79,7 @@ function NavBar() {
             </button>
           </div>
           <div className="profileLogout">
-            <button className="button nav-button">
+            <button onClick={logout} className="button nav-button">
               <FiLogOut /> Log Out
             </button>
           </div>
