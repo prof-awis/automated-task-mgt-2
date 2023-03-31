@@ -5,6 +5,7 @@ import Signup from "./pages/Signup";
 import GetStarted from "./pages/GetStarted";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       {localStorage.getItem("token") ? (
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="*" element={<Dashboard />} />

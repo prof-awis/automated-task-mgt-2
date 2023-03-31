@@ -1,9 +1,58 @@
 .statusTask {
-  /* background: yellow; */
+  /* background: yellow;
+  overflow-x: hidden;
+  overflow-y: hidden; */
   margin: 2rem 1rem;
-  height: 3rem;
+  height: 4rem;
+  box-sizing: border-box;
   display: flex;
   gap: 1rem;
+}
+
+.statusTask .statusCount {
+  /* border: 1px solid #4d3729ee; */
+  background-color: #cb936d;
+  color: #fff;
+  padding: 0.5rem 0.7rem;
+  height: 5.2rem;
+  width: 5.2rem;
+  border-radius: 100%;
+}
+
+.taskContainer {
+  /* border: 1px solid rebeccapurple; */
+  background: #4d3729ee;
+  border-radius: 0.5rem;
+  box-shadow: 0.5rem 0.5rem 1rem#4d3729ee;
+  padding: 1rem 0.5rem;
+  margin-bottom: 2rem;
+}
+.displayTask {
+  background: #cb936d;
+  margin: 1rem 0;
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: 2rem 25% 5rem 20% auto 2rem;
+}
+
+.displayTask > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid #cb936d; */
+  padding: 0.5rem 0.5rem;
+}
+
+.displayTask .taskCount {
+  background-color: #fff;
+  color: #000;
+  height: 2.2rem;
+  width: 2.2rem;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .statusModal {
@@ -48,6 +97,9 @@
   justify-content: space-evenly;
 }
 
+.modalWhenNoStatusName {
+  color: white;
+}
 /* .statusTask {
    background: yellow; 
   margin: 2rem 1rem;

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import "../components-css/TaskCreator.css";
+import { BiEdit } from "react-icons/bi";
+import { AiOutlinePlus } from "react-icons/ai";
 
 function TaskCreator() {
   const [open, setOpen] = useState(false);
@@ -15,7 +17,7 @@ function TaskCreator() {
     title: "",
     description: "",
     dueDate: "",
-    priority: "",
+    priority: "Low",
   });
 
   const changeFormHandler = (e) => {
@@ -141,34 +143,53 @@ function TaskCreator() {
             key={status._id}
             onClick={() => handleStatusChange(status._id)}
             className={`${
-              status._id === activeStatus ? "buttonActive" : "button"
+              status._id === activeStatus ? "button buttonActive" : "button"
             }`}
           >
             {status._id === activeStatus ? (
               <span>
-                {status.name} <span className="">{tasks.length}</span>
+                {status.name}{" "}
+                <span className="statusCount">{tasks.length}</span>
+                <span>
+                  {" "}
+                  <BiEdit />
+                </span>
               </span>
             ) : (
               <span>{status.name}</span>
             )}
           </button>
         ))}
+
         <button onClick={() => setOpenStatus(true)} className="button">
-          add status{" "}
+          <AiOutlinePlus />
+          Add status{" "}
         </button>
       </div>
-      <button onClick={() => setOpen(!open)} className="button">
-        new task
-      </button>
-      <div>
-        {tasks?.map((task) => (
-          <div key={task._id}>
-            <p> {task.title}</p>
-            <p> {task.priority}</p>
-            <p> {task.dueDate}</p>
-            <p> {task.description}</p>
-          </div>
-        ))}
+      <div className="taskContainer">
+        <div>
+          <button
+            onClick={() => setOpen(!open)}
+            className="button addTaskButton"
+          >
+            <AiOutlinePlus />
+            Create Task
+          </button>
+        </div>
+        <div>
+          {tasks?.map((task, index) => (
+            <div key={task._id} className="displayTask">
+              <div className="taskCount">{index + 1}</div>
+              <div className="taskTitle"> {task.title}</div>
+              <div className="taskPriority"> {task.priority}</div>
+              <div className="taskDueDate"> {task.dueDate}</div>
+              <div className="taskDescription"> {task.description}</div>
+              <div>
+                <BiEdit />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       <Modal
@@ -176,67 +197,73 @@ function TaskCreator() {
         onRequestClose={() => setOpen(false)}
         className="taskModal"
       >
-        <form className="formTaskModal" onSubmit={handleSubmit}>
-          <div class="user-box userBoxInput">
-            <label>Title</label>
-            <input
-              type="text"
-              onChange={changeFormHandler}
-              value={newTaskData.title}
-              name="title"
-              required
-              placeholder="New Task Name"
-            />
-          </div>
-          <div class="user-box userBoxInput">
-            <label>Priority </label>
-            <select
-              type="text"
-              onChange={changeFormHandler}
-              value={newTaskData.priority}
-              name="priority"
-              required
-            >
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
-          </div>
-          <div class="user-box userBoxInput">
-            <label>Due Date</label>
-            <input
-              type="date"
-              onChange={changeFormHandler}
-              value={newTaskData.dueDate}
-              name="dueDate"
-              required
-            />
-          </div>
+        {statuses?.length > 0 ? (
+          <form className="formTaskModal" onSubmit={handleSubmit}>
+            <div class="user-box userBoxInput">
+              <label>Title</label>
+              <input
+                type="text"
+                onChange={changeFormHandler}
+                value={newTaskData.title}
+                name="title"
+                required
+                placeholder="New Task Name"
+              />
+            </div>
+            <div class="user-box userBoxInput">
+              <label>Priority </label>
+              <select
+                type="text"
+                onChange={changeFormHandler}
+                value={newTaskData.priority}
+                name="priority"
+                required
+              >
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+            <div class="user-box userBoxInput">
+              <label>Due Date</label>
+              <input
+                type="datetime-local"
+                onChange={changeFormHandler}
+                value={newTaskData.dueDate}
+                name="dueDate"
+                required
+              />
+            </div>
 
-          <div class="user-box userBoxInput">
-            <label>Description</label>
-            <input
-              type="text"
-              onChange={changeFormHandler}
-              value={newTaskData.description}
-              name="description"
-              placeholder="Add Task Description..."
-              required
-            />
+            <div class="user-box userBoxInput">
+              <label>Description</label>
+              <input
+                type="text"
+                onChange={changeFormHandler}
+                value={newTaskData.description}
+                name="description"
+                placeholder="Add Task Description..."
+                required
+              />
+            </div>
+            <div className="user-box2 userBoxButtons">
+              <button type="submit" className="button userBoxButton">
+                Save
+              </button>
+              <button
+                type="button"
+                className="button userBoxButton userBoxButton2"
+                onClick={() => setOpen(false)}
+              >
+                cancel
+              </button>
+            </div>
+          </form>
+        ) : (
+          <div className="modalWhenNoStatusName">
+            Add the status you want your task to be in!
           </div>
-          <div className="user-box2 userBoxButtons">
-            <button type="submit" className="button userBoxButton">
-              Save
-            </button>
-            <button
-              type="button"
-              className="button userBoxButton userBoxButton2"
-              onClick={() => setOpen(false)}
-            >
-              cancel
-            </button>
-          </div>
-        </form>
+        )}
       </Modal>
 
       <Modal

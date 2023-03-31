@@ -17,12 +17,12 @@
 }
 
 .navBar .nav-button {
-  height: 100%;
-  padding: 0rem 0.6rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
   font-size: 0.9rem;
   font-weight: 500;
   color: #ffffff;
-  background: #cb936d;
+  background: #4d3729ef;
   border-radius: 0.3rem 0.3rem;
   border: 0.3rem;
   white-space: nowrap;
@@ -30,9 +30,9 @@
 }
 
 .navBar .button:hover {
-  color: #cb936d;
-  border-color: #cb936d;
-  border: 1px solid #cb936d;
+  color: #4d3729ef;
+  border-color: #4d3729ef;
+  border: 1px solid #4d3729ef;
   background: #ffffff;
 }
 
@@ -53,4 +53,30 @@
   /* border: #cb936d; */
   color: #fff;
   background: #cb936d;
+}
+
+.addTaskButton {
+  padding: 0.7rem 1rem;
+  color: #4d3729ef;
+  background: #ffffff;
+  font-size: 1rem;
+  display: flex;
+  gap: 1rem;
+  border-radius: 2rem;
+}
+
+.addTaskButton:hover {
+  padding: 0.7rem 1rem;
+  color: #4d3729ef;
+  background: #ffffff;
+  font-size: 1rem;
+  display: flex;
+  gap: 1rem;
+  border-radius: 2rem;
+}
+.buttonActive {
+  color: #cb936d;
+  border-color: #cb936d;
+  border: 1px solid #cb936d;
+  background: #ffffff;
 }

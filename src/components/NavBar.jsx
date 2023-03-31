@@ -4,10 +4,11 @@ import ProfilePicture from "../images/remind.jpg";
 import { FiLogOut } from "react-icons/fi";
 import { IoLogoSlack, IoEarth } from "react-icons/io5";
 import { GoPerson } from "react-icons/go";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const newUser = localStorage.getItem("user");
@@ -17,6 +18,10 @@ function NavBar() {
   const logout = () => {
     localStorage.clear();
     window.location.reload();
+  };
+
+  const navigateToProfile = () => {
+    navigate("/Profile");
   };
 
   return (
@@ -74,7 +79,7 @@ function NavBar() {
       {isOpen && (
         <div className="profile-container">
           <div className="profileLogout">
-            <button className="button nav-button">
+            <button onClick={navigateToProfile} className="button nav-button">
               <GoPerson /> Profile
             </button>
           </div>
