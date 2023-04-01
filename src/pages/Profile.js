@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import "./Profile.css";
 import ProfilePicture from "../images/remind.jpg";
@@ -8,8 +8,13 @@ import { BiEdit } from "react-icons/bi";
 // import { useState } from "react";
 
 const Profile = () => {
-  //   const [user, setUser] = useState({});
+  const [user, setUser] = useState({});
   // {user.firstName} {user.lastName}
+  useEffect(() => {
+    const newUser = localStorage.getItem("user");
+    setUser(JSON.parse(newUser));
+  }, []);
+
   return (
     <div className="profilePage-container">
       <NavBar />
@@ -24,16 +29,17 @@ const Profile = () => {
         <div className="profilePageInfo">
           <h1>Profile</h1>
           <div>
-            Name: Awino Emanuel <BiEdit />
+            Name: {user.firstName} {user.lastName} <BiEdit />
           </div>
           <div>
-            About: I am a jovial Soul <BiEdit />
+            Email: {user.email}
+            <BiEdit />
           </div>
           <div>
-            Phone: +254 790 487 436 <BiEdit />
+            About: <BiEdit />
           </div>
           <div>
-            Email: awinoemanuel@gmail.com <BiEdit />
+            Phone: <BiEdit />
           </div>
         </div>
       </section>

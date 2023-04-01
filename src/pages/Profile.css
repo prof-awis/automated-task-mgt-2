@@ -43,4 +43,10 @@
 }
 .profilePageInfo > h1 {
   text-align: center;
+  color: rgb(146, 31, 31);
+}
+
+.profilePageInfo > div {
+  color: #000;
+  font-weight: 600;
 }

@@ -11,7 +11,11 @@ function TaskCreator() {
   const [statuses, setStatuses] = useState([]);
   const [activeStatus, setActiveStatus] = useState();
   const [newStatus, setNewStatus] = useState("");
+  const [newStatusEdit, setNewStatusEdit] = useState({});
+
   const [token, setToken] = useState("");
+  const [editTask, setEditTask] = useState(false);
+  const [editStatus, setEditStatus] = useState(false);
 
   const [newTaskData, setNewTaskData] = useState({
     title: "",
@@ -128,7 +132,129 @@ function TaskCreator() {
         setOpenStatus(false);
         setStatuses(res.categories);
         setActiveStatus(res.category);
+        setTasks(res.tasks);
         setNewStatus("");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleEditTask = (task) => {
+    setNewTaskData(task);
+    setOpen(true);
+    setEditTask(true);
+  };
+
+  const handleEditSubmit = (e) => {
+    e.preventDefault();
+    fetch(`http://localhost:8000/api/tasks/${newTaskData._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        title: newTaskData.title,
+        description: newTaskData.description,
+        dueDate: newTaskData.dueDate,
+        priority: newTaskData.priority,
+        category: newTaskData.category,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setOpen(false);
+        setTasks(res.tasks);
+        setNewTaskData({
+          title: "",
+          description: "",
+          dueDate: "",
+          priority: "",
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleEditStatus = (status) => {
+    setNewStatusEdit(status);
+    setNewStatus(status.name);
+    setOpenStatus(true);
+    setEditStatus(true);
+  };
+
+  const handleEditStatusSubmit = (e) => {
+    e.preventDefault();
+
+    fetch(`http://localhost:8000/api/categories/${newStatusEdit._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name: newStatus,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setOpenStatus(false);
+        setStatuses(res.categories);
+        setActiveStatus(res.category);
+        setTasks(res.tasks);
+        setEditStatus(false);
+        setNewStatus("");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleDeleteStatus = (e) => {
+    e.preventDefault();
+
+    fetch(`http://localhost:8000/api/categories/${newStatusEdit._id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setOpenStatus(false);
+        setStatuses(res.categories);
+        setActiveStatus(res.category);
+        setTasks(res.tasks);
+        setEditStatus(false);
+        setNewStatus("");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleDeleteTask = (e) => {
+    e.preventDefault();
+    fetch(`http://localhost:8000/api/tasks/${newTaskData._id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setOpen(false);
+        setTasks(res.tasks);
+        setNewTaskData({
+          title: "",
+          description: "",
+          dueDate: "",
+          priority: "",
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -152,7 +278,7 @@ function TaskCreator() {
                 <span className="statusCount">{tasks.length}</span>
                 <span>
                   {" "}
-                  <BiEdit />
+                  <BiEdit onClick={() => handleEditStatus(status)} />
                 </span>
               </span>
             ) : (
@@ -161,7 +287,13 @@ function TaskCreator() {
           </button>
         ))}
 
-        <button onClick={() => setOpenStatus(true)} className="button">
+        <button
+          onClick={() => {
+            setOpenStatus(true);
+            setNewStatus("");
+          }}
+          className="button"
+        >
           <AiOutlinePlus />
           Add status{" "}
         </button>
@@ -175,6 +307,14 @@ function TaskCreator() {
             <AiOutlinePlus />
             Create Task
           </button>
+          <div className="displayTask displayTaskHeader">
+            <div>No.</div>
+            <div>Task Name</div>
+            <div>Priority</div>
+            <div>Due Date</div>
+            <div>Description</div>
+            <div>Edit</div>
+          </div>
         </div>
         <div>
           {tasks?.map((task, index) => (
@@ -185,7 +325,7 @@ function TaskCreator() {
               <div className="taskDueDate"> {task.dueDate}</div>
               <div className="taskDescription"> {task.description}</div>
               <div>
-                <BiEdit />
+                <BiEdit onClick={() => handleEditTask(task)} />
               </div>
             </div>
           ))}
@@ -198,7 +338,10 @@ function TaskCreator() {
         className="taskModal"
       >
         {statuses?.length > 0 ? (
-          <form className="formTaskModal" onSubmit={handleSubmit}>
+          <form
+            className="formTaskModal"
+            onSubmit={editTask ? handleEditSubmit : handleSubmit}
+          >
             <div class="user-box userBoxInput">
               <label>Title</label>
               <input
@@ -218,6 +361,7 @@ function TaskCreator() {
                 value={newTaskData.priority}
                 name="priority"
                 required
+                placeholder="Select a choice..."
               >
                 <option value="Low">Low</option>
                 <option value="Medium">Medium</option>
@@ -253,9 +397,9 @@ function TaskCreator() {
               <button
                 type="button"
                 className="button userBoxButton userBoxButton2"
-                onClick={() => setOpen(false)}
+                onClick={editTask ? handleDeleteTask : () => setOpen(false)}
               >
-                cancel
+                {editTask ? "Delete" : "cancel"}
               </button>
             </div>
           </form>
@@ -271,7 +415,10 @@ function TaskCreator() {
         onRequestClose={() => setOpenStatus(false)}
         className="statusModal"
       >
-        <form onSubmit={handleCreateStatus} className="formStatusModal">
+        <form
+          onSubmit={editStatus ? handleEditStatusSubmit : handleCreateStatus}
+          className="formStatusModal"
+        >
           <div className="user-box userBoxInput">
             <label>New status</label>
             <input
@@ -291,9 +438,11 @@ function TaskCreator() {
             <button
               type="button"
               className="button userBoxButton userBoxButton2"
-              onClick={() => setOpenStatus(false)}
+              onClick={
+                editStatus ? handleDeleteStatus : () => setOpenStatus(false)
+              }
             >
-              cancel
+              {editStatus ? "Delete" : "cancel"}
             </button>
           </div>
         </form>
