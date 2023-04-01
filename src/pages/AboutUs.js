@@ -17,14 +17,14 @@ const AboutUs = () => {
         <div className="aboutUsText">
           <h1>About Us</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, sit
-            soluta beatae vero iure corrupti eveniet perspiciatis aperiam dolor
-            maxime quas officiis recusandae excepturi nobis nihil suscipit
-            dolore, ipsa in.
+            The Automated Task Management System is a software solution designed
+            to help individuals; mainly the students manage their tasks and
+            projects efficiently.
           </p>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. In,
-            corrupti!
+            The system development is driven by the passionate desire to help
+            users achieve their goals and increase their productivity through
+            the use of technology.
           </p>
         </div>
       </div>
@@ -35,14 +35,16 @@ const AboutUs = () => {
         </div>
         <div className="aboutUsPar">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, sit
-            soluta beatae vero iure corrupti eveniet perspiciatis aperiam dolor
-            maxime quas officiis recusandae excepturi nobis nihil suscipit
-            dolore, ipsa in.
+            Our vision is to be a leading provider of task management software
+            that enables students to work more efficiently, effectively, and
+            collaboratively. We aim to innovate and continuously improve our
+            system to meet the evolving needs of our users and help them achieve
+            their goals faster and with greater ease.
           </p>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. In,
-            corrupti!
+            We believe that our task management system can revolutionize the way
+            students work and contribute to a more productive and successful
+            world.
           </p>
         </div>
       </div>
@@ -54,14 +56,13 @@ const AboutUs = () => {
         </div>
         <div className="aboutUsPar">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, sit
-            soluta beatae vero iure corrupti eveniet perspiciatis aperiam dolor
-            maxime quas officiis recusandae excepturi nobis nihil suscipit
-            dolore, ipsa in.
+            Our mission is to provide a user-friendly and efficient task
+            management system that helps students to prioritize tasks, allocate
+            resources, and monitor progress towards their goals.
           </p>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. In,
-            corrupti!
+            We strive to create a system that empowers users to work smarter,
+            not harder, and achieve their desired outcomes with ease.
           </p>
         </div>
       </div>

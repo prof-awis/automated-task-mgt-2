@@ -23,3 +23,12 @@
   /* position: relative; */
   /* justify-content: space-between; */
 }
+
+.contentTask > p {
+  border: 0px solid #4d3729;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(43, 39, 39, 0.9);
+  padding: 1rem 0.5rem;
+  border-radius: 1rem;
+  margin: 1rem 0;
+  background: #f08a4a;
+}
