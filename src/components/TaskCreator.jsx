@@ -361,11 +361,10 @@ function TaskCreator() {
                 value={newTaskData.priority}
                 name="priority"
                 required
-                placeholder="Select a choice..."
               >
-                <option value="Low">Low</option>
-                <option value="Medium">Medium</option>
-                <option value="High">High</option>
+                <option value="Low">🟢 Low</option>
+                <option value="Medium">🟡 Medium</option>
+                <option value="High">🔴 High</option>
               </select>
             </div>
             <div class="user-box userBoxInput">
