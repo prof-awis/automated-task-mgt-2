@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
+  const [passwordError, setPasswordError] = useState('');
 
   const changeFormHandler = (e) => {
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
@@ -14,8 +15,9 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setPasswordError("");
 
-    const user = fetch("http://localhost:8000/api/auth/login", {
+    fetch("http://localhost:8000/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,8 +33,11 @@ const Login = () => {
           localStorage.setItem("token", res.token);
           localStorage.setItem("user", JSON.stringify(res.user));
           window.location.reload();
+        } else {
+            setPasswordError("Invalid credentials. ");
         }
       })
+
       .catch((error) => {
         console.log(error);
       });
@@ -71,10 +76,15 @@ const Login = () => {
               required
             />
           </div>
+          {passwordError && (
+              <span className="err">{passwordError}</span>
+            )}
+
           <div className="user-box3">
             <input type="checkbox" name="" id="" />
             <label htmlFor="">Remember Me</label>
           </div>
+        
           <div className="user-box2">
             <button type="submit" className="button">
               Login

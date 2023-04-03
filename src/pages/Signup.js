@@ -39,6 +39,7 @@ const Signup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setPasswordError("");
 
     if (password !== confirmPassword) {
       setPasswordError('Passwords do not match');
