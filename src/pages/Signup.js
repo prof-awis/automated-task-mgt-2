@@ -8,68 +8,10 @@ const Signup = () => {
   const [lname, setlname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const [passwordError, setPasswordError] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-  // const [input, setInput] = useState({
-  //   // username: '',
-  //   password: "",
-  //   confirmPassword: "",
-  // });
 
-  // const [error, setError] = useState({
-  //   // username: '',
-  //   password: "",
-  //   confirmPassword: "",
-  // });
-
-  // const onInputChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setInput((prev) => ({
-  //     ...prev,
-  //     [name]: value,
-  //   }));
-  //   validateInput(e);
-  // };
-
-  // const validateInput = (e) => {
-  //   let { name, value } = e.target;
-  //   setError((prev) => {
-  //     const stateObj = { ...prev, [name]: "" };
-
-  //     switch (name) {
-  //       // case "username":
-  //       //   if (!value) {
-  //       //     stateObj[name] = "Please enter Username.";
-  //       //   }
-  //       //   break;
-
-  //       case "password":
-  //         if (!value) {
-  //           stateObj[name] = "Please enter Password.";
-  //         } else if (input.confirmPassword && value !== input.confirmPassword) {
-  //           stateObj["confirmPassword"] =
-  //             "Password and Confirm Password does not match.";
-  //         } else {
-  //           stateObj["confirmPassword"] = input.confirmPassword
-  //             ? ""
-  //             : error.confirmPassword;
-  //         }
-  //         break;
-
-  //       case "confirmPassword":
-  //         if (!value) {
-  //           stateObj[name] = "Please enter Confirm Password.";
-  //         } else if (input.password && value !== input.password) {
-  //           stateObj[name] = "Password and Confirm Password does not match.";
-  //         }
-  //         break;
-
-  //       default:
-  //         break;
-  //     }
-
-  //     return stateObj;
-  //   });
-  // };
 
   const navigate = useNavigate();
 
@@ -79,6 +21,10 @@ const Signup = () => {
 
   const emailChangeHandler = (e) => {
     setemail(e.target.value);
+  };
+
+  const handleConfirmPasswordChange = (event) => {
+    setConfirmPassword(event.target.value);
   };
 
   const passwordChangeHandler = (e) => {
@@ -94,6 +40,10 @@ const Signup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    if (password !== confirmPassword) {
+      setPasswordError('Passwords do not match');
+    } else {
+      // submit the form
     const user = fetch("http://localhost:8000/api/auth/register", {
       method: "POST",
       headers: {
@@ -110,6 +60,7 @@ const Signup = () => {
         navigate("/Login");
       }
     });
+  }
   };
 
   return (
@@ -171,15 +122,15 @@ const Signup = () => {
             <input
               type="password"
               name="confirmPassword"
-              // placeholder="Enter Confirm Password"
-              // value={input.confirmPassword}
-              // onChange={onInputChange}
+              placeholder="Enter Confirm Password"
+              value={confirmPassword}
+              onChange={handleConfirmPasswordChange}
               // onBlur={validateInput}
               required
             />
-            {/* {error.confirmPassword && (
-              <span className="err">{error.confirmPassword}</span>
-            )} */}
+            {passwordError && (
+              <span className="err">{passwordError}</span>
+            )}
           </div>
           <div className="user-box2">
             <input type="checkbox" name="" id="" />
