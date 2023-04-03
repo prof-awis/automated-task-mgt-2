@@ -8,10 +8,8 @@ const Signup = () => {
   const [lname, setlname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const [passwordError, setPasswordError] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-
-
+  const [passwordError, setPasswordError] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const navigate = useNavigate();
 
@@ -42,26 +40,26 @@ const Signup = () => {
     setPasswordError("");
 
     if (password !== confirmPassword) {
-      setPasswordError('Passwords do not match');
+      setPasswordError("Passwords do not match");
     } else {
       // submit the form
-    const user = fetch("http://localhost:8000/api/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        firstName: fname,
-        lastName: lname,
-        email: email,
-        password,
-      }),
-    }).then((res) => {
-      if (res.ok) {
-        navigate("/Login");
-      }
-    });
-  }
+      const user = fetch("http://localhost:8000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: fname,
+          lastName: lname,
+          email: email,
+          password,
+        }),
+      }).then((res) => {
+        if (res.ok) {
+          navigate("/Login");
+        }
+      });
+    }
   };
 
   return (
@@ -123,19 +121,17 @@ const Signup = () => {
             <input
               type="password"
               name="confirmPassword"
-              placeholder="Enter Confirm Password"
+              placeholder=""
               value={confirmPassword}
               onChange={handleConfirmPasswordChange}
               // onBlur={validateInput}
               required
             />
-            {passwordError && (
-              <span className="err">{passwordError}</span>
-            )}
+            {passwordError && <span className="err">{passwordError}</span>}
           </div>
           <div className="user-box2">
-            <input type="checkbox" name="" id="" />
-            <label htmlFor="">Remember Me</label>
+            {/* <input type="checkbox" name="" id="" /> */}
+            {/* <label htmlFor="">Remember Me</label> */}
           </div>
           <div className="user-box2">
             {/* <a href="./Login">Submit</a> */}
