@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Signup.css";
 import pic from "../images/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg";
 import { Link, useNavigate } from "react-router-dom";
+import baseURL from "../API/api";
 
 const Signup = () => {
   const [fname, setfname] = useState("");
@@ -43,7 +44,7 @@ const Signup = () => {
       setPasswordError("Passwords do not match");
     } else {
       // submit the form
-      const user = fetch("http://localhost:8000/api/auth/register", {
+      const user = fetch(baseURL + "/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

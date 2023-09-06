@@ -3,11 +3,12 @@ import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import pic from "../images/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg";
 import { Link } from "react-router-dom";
+import baseURL from "../API/api";
 
 const Login = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
-  const [passwordError, setPasswordError] = useState('');
+  const [passwordError, setPasswordError] = useState("");
 
   const changeFormHandler = (e) => {
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
@@ -17,7 +18,7 @@ const Login = () => {
     event.preventDefault();
     setPasswordError("");
 
-    fetch("http://localhost:8000/api/auth/login", {
+    fetch(baseURL + "/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +35,7 @@ const Login = () => {
           localStorage.setItem("user", JSON.stringify(res.user));
           window.location.reload();
         } else {
-            setPasswordError("Invalid credentials. ");
+          setPasswordError("Invalid credentials. ");
         }
       })
 
@@ -76,15 +77,13 @@ const Login = () => {
               required
             />
           </div>
-          {passwordError && (
-              <span className="err">{passwordError}</span>
-            )}
+          {passwordError && <span className="err">{passwordError}</span>}
 
           <div className="user-box3">
             <input type="checkbox" name="" id="" />
             <label htmlFor="">Remember Me</label>
           </div>
-        
+
           <div className="user-box2">
             <button type="submit" className="button">
               Login

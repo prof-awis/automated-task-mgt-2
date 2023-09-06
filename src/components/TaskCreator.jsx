@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import "../components-css/TaskCreator.css";
 import { BiEdit } from "react-icons/bi";
 import { AiOutlinePlus } from "react-icons/ai";
+import baseURL from "../API/api";
 
 function TaskCreator() {
   const [open, setOpen] = useState(false);
@@ -32,7 +33,7 @@ function TaskCreator() {
     const createdToken = localStorage.getItem("token");
     setToken(createdToken);
 
-    fetch("http://localhost:8000/api/categories", {
+    fetch(baseURL + "/api/categories", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +46,7 @@ function TaskCreator() {
         setActiveStatus(res[0]._id);
         setStatuses(res);
 
-        fetch(`http://localhost:8000/api/tasks?category=${res[0]._id}`, {
+        fetch(baseURL + `/api/tasks?category=${res[0]._id}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
